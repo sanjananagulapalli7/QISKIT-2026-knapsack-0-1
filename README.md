@@ -1,5 +1,6 @@
 # QISKIT-2026-knapsack-0-1
 1) Background: From classical to quantum computing.
+
   1.1 ) what is an optimization problem?
 An optimization problem involves finding the best possible solution from a set of possible choices while satisfying specified constraints. The goal may be to maximize a quantity, such as profit or value, or minimize a quantity, such as cost, time, or energy consumption.
 Optimization problems arise in many real-world applications, including transportation, logistics, resource allocation, scheduling, and supply chain management.
@@ -7,30 +8,35 @@ Most optimization problems can be described using three key components:
 - Decision variables: The choices we can make.
 - Objective function: The mathematical expression describing what we want to maximize or minimize.
 - Constraints: The rules or limitations that a valid solution must satisfy.
+  
   1.2) How Do Classical Computers Solve Optimization Problems?
 Classical computers process information using bits, which represent either 0 or 1. They use logical operations and algorithms to perform calculations, evaluate possible solutions, and solve optimization problems.
 Depending on the problem, a classical algorithm may examine possible solutions individually, use mathematical techniques to find an exact answer, or apply heuristics to find a good solution without checking every possibility.
 For small optimization problems, exhaustive search can be an effective approach. It evaluates every possible selection and identifies the best valid solution. However, the number of possible selections can grow exponentially as the number of decision variables increases.
 For example, if a problem has (n) binary decision variables, there are (2^n) possible assignments. This means that adding more decision variables can make exhaustive search increasingly expensive.
 Classical computers remain highly effective for many optimization problems. The difficulty of solving a particular problem depends on its structure, size, and the algorithm used.
+
   1.3) Why Investigate Quantum Computing?
 Although classical computers solve many optimization problems effectively, some problem classes become computationally expensive as their size increases. This has motivated researchers to investigate alternative computational approaches, including quantum computing.
 Quantum computers use principles of quantum mechanics to represent and process information. Unlike classical bits, which represent either 0 or 1, quantum bits (qubits) can exist in quantum superpositions of the states represented by 0 and 1.
 Quantum algorithms use quantum operations to manipulate these states and can produce measurement outcomes whose probabilities depend on the computation performed. For certain problems, carefully designed quantum algorithms may offer advantages over the best known classical approaches.
 However, quantum computers are not universally faster than classical computers. Any practical advantage depends on the problem, the algorithm, the hardware, and the performance of the available classical methods. Current quantum processors are also affected by noise and hardware limitations.
 This project investigates a quantum optimization approach to understand its behavior under specified processor configurations, rather than assuming that quantum computing will automatically outperform classical methods.
+
   1.4)What Is a Quantum Processor?
 A quantum processor is a physical computing device that uses controllable quantum systems to perform quantum operations. Its basic units of quantum information are called qubits.
 A quantum algorithm is expressed as a sequence of quantum operations, commonly represented as a quantum circuit. The processor applies these operations to its qubits, changes their quantum states, and measures the resulting states to produce classical data.
 A quantum processor does not independently decide which solution to choose. The algorithm defines the computation, while the processor executes the corresponding quantum operations. A classical computer typically works alongside it to prepare inputs, optimize algorithm parameters, process measurement results, and evaluate performance.
 The capabilities of a quantum processor depend on several factors, including its number of qubits, the connections between qubits, the operations it supports, and the errors that occur during computation and measurement.
 Consequently, evaluating a quantum algorithm requires considering not only its mathematical design but also how well it can be implemented on the target processor.
+
   1.5) Quantum Computing for Optimization
 Quantum optimization is an area of research that investigates how quantum algorithms can be used to find high-quality solutions to optimization problems.
 One approach is the Quantum Approximate Optimization Algorithm (QAOA). QAOA combines parameterized quantum circuits with classical optimization: a quantum circuit generates measurement outcomes, and a classical optimizer uses information from those outcomes to adjust the circuit parameters.
 The objective is to increase the likelihood of obtaining good solutions while respecting the problem's constraints. The quality of the results depends on the mathematical formulation, circuit structure, parameter choices, processor characteristics, and noise.
 In this project, we investigate QAOA for the 0/1 Knapsack Problem specified in Qiskit Fall Fest 2026, Problem Statement PS-O3. We will compare the specified Processor A and Processor B configurations to examine how their connectivity and resulting circuit implementations affect solution quality and hardware-related metrics.
 Because the problem is small enough to solve exactly using a classical computer, we can establish a classical reference solution and evaluate the quantum results against it. This allows us to investigate the behavior and limitations of the approach without assuming that quantum computing provides a practical advantage.
+
  2) Understanding Quantum Processors
 A quantum processor executes quantum circuits using physical qubits and quantum operations. To understand how processor hardware affects our optimization experiments, we first need to understand how qubits represent information, how quantum gates manipulate that information, and how measurements produce results.
 The processor's qubit count, connectivity, supported operations, and error characteristics can all influence how a quantum algorithm is implemented and how well it performs.
